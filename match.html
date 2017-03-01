@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<!--
+	Ion by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Match Data</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-xlarge.css" />
+		</noscript>
+	</head>
+	<body id="top">
+
+		<!-- Header -->
+			<header id="header" class="skel-layers-fixed">
+				<nav id="nav">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Main -->
+			<section id="main" class="wrapper style1">
+				<header class="major">
+					<h2>Working with Match Data</h2>
+					<p>We'll use what we've learned to start piecing together a fully functioning script</p>
+				</header>
+				<div class="container">
+					<div class="row">
+					  <div class="4u">
+					    <section>
+					      <h3>Callbacks</h3>
+					      <p> We call the functon that we pass to the addListenerEvent a callback. We've already seen that inside the callback we can work with the data we request. We're going to take a more in-depth look at this function by working through an example.</p>
+					    </section>
+					  </div>
+					  <div class="8u skel-cell-important">
+					    <section>
+					      <h2>head2</h2>
+								<iframe width="100%" height="600" src="//jsfiddle.net/akshaysu/mfshtv2g/embedded/js/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+					      <p> Let's start with our new request. We've changed the endpoint we are working with. The general syntax for retrieving the data from a match is: /api/lol/{region}/v2.2/match/{matchId}. If you notice within the URL we are requesting we have embedded the matchID that we extraced from our previous request.</p>
+								<p> This code snippet performs a specific task. It goes through the retrieved match data and creates two parallel arrays, one which holds creep score of the match and the other which holds the time of the corresponding creep score. Hopefully the included comments will help you understand how information is layed out in the matchData object. </p>
+								<p> The actual code, however, is less important than where the code is located. Notice how <strong> everything </strong> is being done <strong> within </strong> the callback. This is because any code that comes after (and outside) the callback can actually be executed before the callback finishes. This is why we call our asynchronous. We can actually go ahead and start doing other stuff while our callback function waits for our information to 'load' so it can work with it.</p>
+								<p> This may seem a little confusing. Let's move forward, however, and look at an example that will better illustrate this. </p>
+					    </section>
+						</div>
+					</div>
+
+					<!-- Insert new blocks above here -->
+					<hr class="major" />
+					<div class="row">
+						<h4> We're going to use the code here to create a table that will display our creep score per minute. We're also going to take one more step forward in leveraging the power of client-side requests </h4>
+						<p><a href="asynchronous.html">Asynchronous Requests and Promises</a></p>
+					</div>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+					<div class="row double">
+						<div class="6u">
+							<div class="row collapse-at-2">
+								<div class="6u">
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<ul class="copyright">
+						<li>&copy; Untitled. All rights reserved.</li>
+						<li>Design: <a href="http://templated.co">TEMPLATED</a></li>
+						<li>Images: <a href="http://unsplash.com">Unsplash</a></li>
+					</ul>
+				</div>
+			</footer>
+
+	</body>
+</html>
