@@ -35,8 +35,8 @@
 		<!-- Main -->
 			<section id="main" class="wrapper style1">
 				<header class="major">
-					<h2>Asynchronous Requests and Promises</h2>
-					<p>Promises help us control the flow of our AJAX requests further automating our API calls</p>
+					<h2>The Nature of Asynchronous Requests</h2>
+					<p>Control flow becomes important when we start linking our AJAX requests</p>
 				</header>
 				<div class="container">
 					<div class="row">
@@ -49,12 +49,71 @@
 					  <div class="8u skel-cell-important">
 					    <section>
 					      <h2>Retrieving A Champion Name</h2>
-					      <a href="#" class="image fit"><img src="images/pic03.jpg" alt="" /></a>
-					      <p> Although none of the syntax is new this is a slightly different way of presenting AJAX requests.  </p>
+					      <a href="#" class="image fit"><img src="images/asyncwrong.jpg" alt="" /></a>
+					      <p> Although none of the syntax is new this is a slightly different way of presenting AJAX requests. Here we're using the riot matchList and static-data endpoints to now get the champion name from our most recent game. We're wrapping our first request to matchList inside a function that returns the variable (matchId) that is to be included in the url for the second request. </p>
+								<p> This is a really powerful tool as we start building web applications. Although it is beyond the scope of this guide, we can conceive of a site that asks a user for their summoner name and uses linked requests to retrieve the type of data they want. We have to be wary, however, because we can run into some issues doing this. Let's take a look at the result. </p>
+					    </section>
+					  </div>
+					</div>
+					<div class="row">
+					  <div class="4u">
+					    <section>
+					      <h3> Control Flow</h3>
+					      <p> Linking asynchronous requests is really valuable but we have to make sure that if a second request relies on the data from a succesful first request that it does not start executing before that data can be returned. We call this managing control flow. </p>
+					    </section>
+					  </div>
+					  <div class="8u skel-cell-important">
+					    <section>
+					      <a href="#" class="image fit"><img src="images/badreq.png" alt="" /></a>
+					      <p> Well this isn't ideal. To understand this think back to when we talked about callbacks. We mentioned how code beyond the callback will execute <strong> while </strong> the callback is waiting for our request to finish. We never had code after our callback so it wasn't a problem. Here, however, we've continued on and sent our champID variable to the next request before the request can assign the variable any actual data. We thus pass an undefined variable into the second request which causes an error.</p>
+					    </section>
+					  </div>
+					</div>
+					<div class="row">
+					  <div class="4u">
+					    <section>
+					      <h3>Fixing our Problem</h3>
+					      <p> The first fix we'll introduce involves directly delaying our second request so that it must execute after the first request. To do this we use a function called setTimeout(). </p>
+					      <ul class="actions">
+					        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout" class="button alt">Learn More on MDN</a></li>
+					      </ul>
+					    </section>
+					  </div>
+					  <div class="8u skel-cell-important">
+					    <section>
+					      <h2>1. Introducing a Delay</h2>
+					      <a href="#" class="image fit"><img src="images/delayreq.jpg" alt="" /></a>
+					      <p> picInfo </p>
+					    </section>
+					  </div>
+					</div>
+					<div class="row">
+					  <div class="4u">
+					    <section>
+					      <p> The second fix involves a more advanced way of addressing control flow called a Promise. Promises can get very complicated so if this is something you are keen on using please click the link below to get a more thorough understanding of how they work.</p>
+					      <ul class="actions">
+					        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="button alt">Learn More on MDN</a></li>
+					      </ul>
+					    </section>
+					  </div>
+					  <div class="8u skel-cell-important">
+					    <section>
+					      <h2>2. Promises </h2>
+								  <iframe width="100%" height="300" src="//jsfiddle.net/akshaysu/q6uzk4rn/embedded/js/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+									<p> We can see in this fiddle we've now added a new return that returns a promise object and have two new conditionals, a fail and a succeed. Promises wrap an asynchronous request around an object thus allowing us to conditionally execute consective requests based on the success or failure of our object action. We're not going to go into too much more detail about how this works but let's briefly touch on how the promise is affecting the control flow. </p>
+									<a href="#" ><img src="images/then.jpg" alt="" /></a>
+									<p> The next method we have used allows us to use the return value from our promise if the request was succesful (if unsuccesful it will call an error condition). We have now thus made a conditional statement based on the completion of the first requst. Finally, we use the result of our promise to extract the champion ID and pass it to our second query to get the champion name. Using promises in this way allows us to create many types of linked requests that could allow a user to get all sorts of information with just their summoner name. </p>
 					    </section>
 					  </div>
 					</div>
 
+					<!-- Insert new blocks above here -->
+					<hr class="major" />
+					<div class="row">
+						<h4> Asynchronous requests are how more complex websites function without locking up at the first user input. This allows for increased flexibility and efficiency but also yields a great deal more complexity. Let's finally put everything together and make our creep score per minute table.</h4>
+						<p><a href="finish.html">Making our Creep Score Counter</a></p>
+					</div>
+				</div>
 			</section>
 
 		<!-- Footer -->
