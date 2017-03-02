@@ -1,0 +1,12 @@
+<!-- extra html that we may want to use later -->
+
+<h3>Callbacks</h3>
+
+<p> We call the functon that we pass to the addListenerEvent a callback. We've already seen that inside the callback we can work with the data we request. We're going to take a more in-depth look at this function by working through an example.</p>
+
+
+<p> This code snippet performs a specific task. It goes through the retrieved match data and creates two parallel arrays, one which holds creep score of the match and the other which holds the time of the corresponding creep score. Hopefully the included comments will help you understand how information is layed out in the matchData object. </p>
+
+<p> The actual code, however, is less important than where the code is located. Notice how <strong> everything </strong> is being done <strong> within </strong> the callback. This is because any code that comes after (and outside) the callback can actually be executed before the callback finishes. This is why we call our asynchronous. We can actually go ahead and start doing other stuff while our callback function waits for our information to 'load' so it can work with it.</p>
+
+<p> This may seem a little confusing. So let's move forward and look at an example that may better illustrate this. </p>
