@@ -83,7 +83,7 @@
 					    <section>
 					      <h2>1. Introducing a Delay</h2>
 					      <a href="#" class="image fit"><img src="images/delayreq.jpg" alt="" /></a>
-					      <p> picInfo </p>
+					      <p> Let's start with what's changed. Noticed we've commented out our old function call and now instead of passing our returned champion ID as a parameter we're using it as a global variable to be used in the url. We still have our problem, however, that champID will be undefined if we make our second request immediately. This is where our second change setTimeout comes in. setTimeout will create a timer that will execute a passed function after the timer finishes. Here we're preventing our getChampName function from executing for two seconds giving our first request ample time to finish ensuring our champID parameter is no longer undefined. </p>
 					    </section>
 					  </div>
 					</div>
