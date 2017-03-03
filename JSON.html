@@ -43,7 +43,7 @@
 					  <div class="4u">
 					    <section>
 					      <h3> What is JSON? </h3>
-					      <p>Responses from the Riot API are JSON (JavaScript Object Notation) encoded. JSON is .</p>
+					      <p>Responses from the Riot API are JSON (JavaScript Object Notation) encoded. JSON has become the standard for sending information on the internet. JSON is used by the Riot API to send object information in the form of "key"="value" pairs that can be either by read by humans or parsed into workable Javascript objects. </p>
 					      <ul class="actions">
 					        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON" class="button alt">Learn More on MDN</a></li>
 					      </ul>
@@ -53,10 +53,10 @@
 							<section>
 								<h2>Our Request Info</h2>
 								<a href="#" class="image fit"><img src="images/rawJsonShort.jpg" alt="" /></a>
-								<p> Above is a snippet from the raw information that was returned when we execute the request we previously put together. There should be alot we recognize. Let's look at just the first line in greater detail.</p>
+								<p> Above is a snippet from the raw information that was returned when we executed the request we previously put together. I hope you can now see why we named our variable matchList. Our request allowed us to store data on <strong> every </strong> match we've ever played inside that one variable. Let's take a look at just the first segment in greater detail.</p>
 								<h5> <strong> First Line: </strong>
 									{“region”:”NA”,”platformId”:”NA1”,”matchId”:2428046036,”champion”:24,”queue: ”TEAM_BUILDER_RANKED_SOLO”,”season”:”PRESEASON2017”,”timestamp”:1487368479489, ”lane”:”TOP”,”role”:”SOLO”} </h5>
-								<p>We can see that the JSON object value holds all of the values that were provided by the endpoint we used. JSON is essentially a string that combines all of the key-value pairs of a javascript object. The one fundamental difference is that quotes surround all strings even in the keys.</p>
+								<p> Although the raw JSON does not distinguish between games, we can determine that the above code holds which values were returned for each game provided by the matchList endpoint. These values can be accessed through their key=value pairs like any other Javascript object. JSON is essentially a string that combines all of the key-value pairs of a javascript object. The one fundamental difference is that quotes surround every string in JSON including the keys.</p>
 							</section>
 						</div>
 				  </div>
